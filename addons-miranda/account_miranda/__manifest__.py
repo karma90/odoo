@@ -15,7 +15,8 @@
         'account','account_reports','stock','purchase','sale_management',
     ],
     'data': [
-        'views/account_inherit.xml'
+        'security/ir.model.access.csv',
+        'views/account_inherit.xml',
     ],
     'qweb':[
     ],
