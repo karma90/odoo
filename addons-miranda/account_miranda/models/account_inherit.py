@@ -22,6 +22,9 @@ class AccountAccount(models.Model):
     _inherit = 'account.account'
 
     account_id = fields.Many2one('account.account', string="Cuenta padre")
+    activity = fields.Selection([('Op','Operación'),
+                                ('In','Inversión'),
+                                ('FI','Financiamiento')], string="Actividad", required=True)
 
     @api.onchange('account_id')
     def onchange_account_id(self):

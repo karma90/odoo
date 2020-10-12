@@ -229,7 +229,7 @@ msgstr "Id de Acción"
 #: model:account.financial.html.report.line,name:account_reports.account_financial_report_cashsummary_prepayments_received0
 #, fuzzy
 msgid "Advance Payments received from customers"
-msgstr "Efectivo recibido de clientes"
+msgstr "Efectivo neto de las actividades de Operación"
 
 #. module: account_reports
 #: model:account.financial.html.report.line,name:account_reports.account_financial_report_cashsummary_cash_paid0
@@ -516,12 +516,12 @@ msgstr "Flujos de efectivo de actividades de financiamiento"
 #. module: account_reports
 #: model:account.financial.html.report.line,name:account_reports.account_financial_report_cashsummary_investing0
 msgid "Cash flows from investing & extraordinary activities"
-msgstr "Flujos de efectivo de actividades de inversión y extraordinarias"
+msgstr "Flujos de efectivo de actividades de inversión"
 
 #. module: account_reports
 #: model:account.financial.html.report.line,name:account_reports.account_financial_report_cashsummary_operating0
 msgid "Cash flows from operating activities"
-msgstr "Flujos de efectivo de actividades de explotación"
+msgstr "Flujos de efectivo de actividades de operación"
 
 #. module: account_reports
 #: model:account.financial.html.report.line,name:account_reports.account_financial_report_cashsummary_unclassified0
@@ -1651,6 +1651,13 @@ msgstr "Red de Activos"
 #: model:account.financial.html.report.line,name:account_reports.account_financial_report_cashsummary_net_increase0
 msgid "Net increase in cash and cash equivalents"
 msgstr "Aumento neto de efectivo y equivalentes de efectivo"
+
+#. module: account_reports
+#: model:account.financial.html.report,name:account_reports.account_financial_report_profitandloss0
+#: model:ir.actions.client,name:account_reports.account_financial_html_report_action_1
+#: model:ir.ui.menu,name:account_reports.account_financial_html_report_menu_1
+msgid "Estado de resultados"
+msgstr ""
 
 #. module: account_reports
 #: model:account.financial.html.report.line,name:account_reports.account_financial_report_executivesummary_npmargin0
