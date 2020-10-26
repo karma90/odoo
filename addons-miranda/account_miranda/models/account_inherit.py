@@ -22,9 +22,6 @@ class AccountAccount(models.Model):
     _inherit = 'account.account'
 
     account_id = fields.Many2one('account.account', string="Cuenta padre")
-    activity = fields.Selection([('Op','Operación'),
-                                ('In','Inversión'),
-                                ('FI','Financiamiento')], string="Actividad", required=True)
 
     @api.onchange('account_id')
     def onchange_account_id(self):
@@ -36,7 +33,7 @@ class AccountAccount(models.Model):
 class AccountEcuationMove(models.Model):
     _name = 'account.ecuation.move'
 
-    name = fields.Char(string="Nombre")
+    name = fields.Char(string="Nombre", related='ref')
     ref = fields.Char(string="Referencia")
     journal_id = fields.Many2one('account.journal', string="Diario", required=True)
     line_ids = fields.One2many('account.ecuation.line', 'ecuation_id', string="Apuntes contables")
@@ -52,17 +49,18 @@ class AccountEcuationMove(models.Model):
                             'debit': line.debit,
                             'credit': line.credit,
                 }
-                xline.append(move_ids)
+                xline.append((0, 0, move_ids))
             print("################# SELF XLINE >>>>>>>>>>>>>> ", xline)
+            account_create = self.env['account.move'].create({'ref': record.ref,
+                                                            'journal_id': record.journal_id.id,
+                                                            'line_ids': xline,})
             return {
                 'name'          :   'Apuntes contables',
                 'type'          :   'ir.actions.act_window',
                 'view_type'     :   'form',
                 'view_mode'     :   'form',
                 'target'        :   'current', 
-                'context'       :  {'default_ref': record.ref,
-                                    'default_journal_id': record.journal_id.id,
-                                    'default_line_ids': xline,},
+                'res_id'        :   account_create.id,
                 'res_model'     :   'account.move',
             }
 
